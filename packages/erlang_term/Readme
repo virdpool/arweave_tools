@@ -1,0 +1,13 @@
+# Comparison and precautions
+Please note. This is not full featured erlang term parser, but this is enough to parse all stuff from arweave node for now. \
+Differences from https://github.com/mweibel/node-etf
+* This package should be faster, because of not using extra function calls
+* https://www.npmjs.com/package/dissolve Fast approximation of [u]int64 numbers in signed and unsigned variants. This package will return BigInt. This is extremely important for arweave weave_size, chunk offset, etc
+* This package returns explicit types for each atom, this can be used in easier schema validation
+* Also this package can serialize explicit typed structures to ETF
+* Missing terms: ATOM_CACHE_REF, REFERENCE_EXT, PORT_EXT, PID_EXT, NEW_FUN_EXT, EXPORT_EXT, NEW_REFERENCE_EXT, SMALL_ATOM_EXT, FUN_EXT
+  * Missing terms in both modules: BIT_BINARY_EXT, NEW_PID_EXT, NEW_PORT_EXT, NEWER_REFERENCE_EXT, V4_PORT_EXT
+
+# Test
+Test with launching erlang `ERL=1 npm run test` \
+Note. turporepo is caching. Launch `ERL=1 npm run test` after `npm run test` will not work until some file change
