@@ -37,40 +37,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var __1 = require("..");
-describe("base64url", function () {
-    it("unpack", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var real, expd;
+describe("repack", function () {
+    it("load", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var index;
         return __generator(this, function (_a) {
-            real = (0, __1.unpack)("aDZDgFX-prCtvJX1_OJtqw3q3vEVUhSEx2j9JAFvr8x4yXuAcNAa4b8VhhBXnpF9");
-            expd = Buffer.from("6836438055fea6b0adbc95f5fce26dab0deadef115521484c768fd24016fafcc78c97b8070d01ae1bf158610579e917d", "hex");
-            expect(real.equals(expd)).toBe(true);
-            return [2 /*return*/];
-        });
-    }); });
-    it("pack", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var buf, real, expd;
-        return __generator(this, function (_a) {
-            buf = Buffer.from("6836438055fea6b0adbc95f5fce26dab0deadef115521484c768fd24016fafcc78c97b8070d01ae1bf158610579e917d", "hex");
-            real = (0, __1.pack)(buf);
-            expd = "aDZDgFX-prCtvJX1_OJtqw3q3vEVUhSEx2j9JAFvr8x4yXuAcNAa4b8VhhBXnpF9";
-            expect(real).toBe(expd);
-            return [2 /*return*/];
-        });
-    }); });
-    it("unpack pack", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var str;
-        return __generator(this, function (_a) {
-            str = "aDZDgFX-prCtvJX1_OJtqw3q3vEVUhSEx2j9JAFvr8x4yXuAcNAa4b8VhhBXnpF9";
-            expect((0, __1.pack)((0, __1.unpack)(str))).toBe(str);
-            return [2 /*return*/];
-        });
-    }); });
-    it("pack unpack", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var buf;
-        return __generator(this, function (_a) {
-            buf = Buffer.from("6836438055fea6b0adbc95f5fce26dab0deadef115521484c768fd24016fafcc78c97b8070d01ae1bf158610579e917d", "hex");
-            expect((0, __1.unpack)((0, __1.pack)(buf)).equals(buf)).toBe(true);
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0:
+                    index = new __1.Block_index3_json();
+                    return [4 /*yield*/, __1.Block_index3_json_manager.load(index, __dirname + "/block_index_slice")];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
         });
     }); });
 });

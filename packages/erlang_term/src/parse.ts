@@ -179,7 +179,7 @@ class Erlang_parse_context {
           const value_orig= buf.slice(this.offset, this.offset + chunk_len);
           this.offset += chunk_len
           
-          let value = BigInt("0x"+value_orig.toString("hex"))
+          let value = BigInt("0x"+value_orig.reverse().toString("hex"))
           if (sign) {
             value = -value
           }
@@ -197,7 +197,7 @@ class Erlang_parse_context {
           const value_orig= buf.slice(this.offset, this.offset + chunk_len);
           this.offset += chunk_len
           
-          let value = BigInt("0x"+value_orig.toString("hex"))
+          let value = BigInt("0x"+value_orig.reverse().toString("hex"))
           if (sign) {
             value = -value
           }

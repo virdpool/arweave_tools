@@ -25,7 +25,7 @@ describe("parse", () => {
     });
   });
   it("INTEGER_EXT", () => {
-    const value = 0xFFFFFF;
+    const value = 0xAABBFF;
     const buf = Buffer.from([131, 98, 0,0,0,0]);
     buf.writeUInt32BE(value, 2);
     
@@ -230,9 +230,9 @@ describe("parse", () => {
   });
   it("SMALL_BIG_EXT", () => {
     const value = Buffer.alloc(8);
-    // const value_bn = 0xFFFFFFFFFFFFn; // TODO ES2020
-    const value_bn = BigInt("0xFFFFFFFFFFFF");
-    value.writeBigInt64BE(value_bn, 0);
+    // const value_bn = 0xAABBCCDDEEFFn; // TODO ES2020
+    const value_bn = BigInt("0xAABBCCDDEEFF");
+    value.writeBigInt64LE(value_bn, 0);
     const head = Buffer.from([131, 110, value.length, 0])
     const buf = Buffer.concat([head, value]);
     
@@ -245,9 +245,9 @@ describe("parse", () => {
   });
   it("SMALL_BIG_EXT negative", () => {
     const value = Buffer.alloc(8);
-    // const value_bn = 0xFFFFFFFFFFFFn; // TODO ES2020
-    const value_bn = BigInt("0xFFFFFFFFFFFF");
-    value.writeBigInt64BE(value_bn, 0);
+    // const value_bn = 0xAABBCCDDEEFFn; // TODO ES2020
+    const value_bn = BigInt("0xAABBCCDDEEFF");
+    value.writeBigInt64LE(value_bn, 0);
     const head = Buffer.from([131, 110, value.length, 1])
     const buf = Buffer.concat([head, value]);
     
@@ -260,9 +260,9 @@ describe("parse", () => {
   });
   it("LARGE_BIG_EXT", () => {
     const value = Buffer.alloc(8);
-    // const value_bn = 0xFFFFFFFFFFFFn; // TODO ES2020
-    const value_bn = BigInt("0xFFFFFFFFFFFF");
-    value.writeBigInt64BE(value_bn, 0);
+    // const value_bn = 0xAABBCCDDEEFFn; // TODO ES2020
+    const value_bn = BigInt("0xAABBCCDDEEFF");
+    value.writeBigInt64LE(value_bn, 0);
     const head = Buffer.from([131, 111, 0,0,0,value.length, 0])
     const buf = Buffer.concat([head, value]);
     
@@ -275,9 +275,9 @@ describe("parse", () => {
   });
   it("LARGE_BIG_EXT negative", () => {
     const value = Buffer.alloc(8);
-    // const value_bn = 0xFFFFFFFFFFFFn; // TODO ES2020
-    const value_bn = BigInt("0xFFFFFFFFFFFF");
-    value.writeBigInt64BE(value_bn, 0);
+    // const value_bn = 0xAABBCCDDEEFFn; // TODO ES2020
+    const value_bn = BigInt("0xAABBCCDDEEFF");
+    value.writeBigInt64LE(value_bn, 0);
     const head = Buffer.from([131, 111, 0,0,0,value.length, 1])
     const buf = Buffer.concat([head, value]);
     

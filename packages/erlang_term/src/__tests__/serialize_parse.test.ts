@@ -24,7 +24,7 @@ describe("serialize", () => {
   it("INTEGER_EXT", () => {
     const value = {
       type  : "INTEGER_EXT",
-      value : 0xFFFFFF
+      value : 0xAABBFF
     } as Parse_result
     const ret = parse(serialize_term(value));
   });
@@ -207,7 +207,7 @@ describe("serialize", () => {
   it("SMALL_BIG_EXT", () => {
     const value = {
       type  : "SMALL_BIG_EXT",
-      value : BigInt("0xFFFFFFFFFFFF"),
+      value : BigInt("0xAABBCCDDEEFF"),
       sign  : 0
     } as Parse_result
     const ret = parse(serialize_term(value));
@@ -217,7 +217,7 @@ describe("serialize", () => {
   it("SMALL_BIG_EXT negative 1", () => {
     const value = {
       type  : "SMALL_BIG_EXT",
-      value : -BigInt("0xFFFFFFFFFFFF"),
+      value : -BigInt("0xAABBCCDDEEFF"),
       sign  : 1
     } as Parse_result
     const ret = parse(serialize_term(value));
@@ -227,14 +227,14 @@ describe("serialize", () => {
   it("SMALL_BIG_EXT negative 2", () => {
     const value = {
       type  : "SMALL_BIG_EXT",
-      value : -BigInt("0xFFFFFFFFFFFF"),
+      value : -BigInt("0xAABBCCDDEEFF"),
       sign  : 0
     } as Parse_result
     const ret = parse(serialize_term(value));
     
     const expd_value = {
       type  : "SMALL_BIG_EXT",
-      value : -BigInt("0xFFFFFFFFFFFF"),
+      value : -BigInt("0xAABBCCDDEEFF"),
       sign  : 1
     } as Parse_result
     expect(ret).toMatchObject(expd_value);
@@ -242,7 +242,7 @@ describe("serialize", () => {
   it("LARGE_BIG_EXT", () => {
     const value = {
       type  : "LARGE_BIG_EXT",
-      value : BigInt("0xFFFFFFFFFFFF"),
+      value : BigInt("0xAABBCCDDEEFF"),
       sign  : 0
     } as Parse_result
     const ret = parse(serialize_term(value));
@@ -252,7 +252,7 @@ describe("serialize", () => {
   it("LARGE_BIG_EXT negative 1", () => {
     const value = {
       type  : "LARGE_BIG_EXT",
-      value : -BigInt("0xFFFFFFFFFFFF"),
+      value : -BigInt("0xAABBCCDDEEFF"),
       sign  : 1
     } as Parse_result
     const ret = parse(serialize_term(value));
@@ -262,13 +262,13 @@ describe("serialize", () => {
   it("LARGE_BIG_EXT negative 2", () => {
     const value = {
       type  : "LARGE_BIG_EXT",
-      value : -BigInt("0xFFFFFFFFFFFF"),
+      value : -BigInt("0xAABBCCDDEEFF"),
       sign  : 0
     } as Parse_result
     const ret = parse(serialize_term(value));
     const expd_value = {
       type  : "LARGE_BIG_EXT",
-      value : -BigInt("0xFFFFFFFFFFFF"),
+      value : -BigInt("0xAABBCCDDEEFF"),
       sign  : 1
     } as Parse_result
     

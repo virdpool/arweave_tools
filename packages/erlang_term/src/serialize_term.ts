@@ -239,7 +239,6 @@ export function _serialize_term(t: Parse_result, buf: Buffer, offset: number):nu
         const byte_size = byte_list.length;
         buf[offset++] = byte_size;
         buf[offset++] = sign;
-        byte_list.reverse();
         for(var i=0;i<byte_size;i++) {
           buf[offset++] = byte_list[i];
         }
@@ -266,7 +265,6 @@ export function _serialize_term(t: Parse_result, buf: Buffer, offset: number):nu
         buf.writeUInt32BE(byte_size, offset);
         offset += 4
         buf[offset++] = sign;
-        byte_list.reverse();
         for(var i=0;i<byte_size;i++) {
           buf[offset++] = byte_list[i];
         }
